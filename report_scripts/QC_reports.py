@@ -191,7 +191,7 @@ def single_report(path, output_path):
             output.write(('<b><font size ="5"> Analysis Report: %s  </b></font size><p>' % str(i)))
             output.write(h5_parameter_table(h5_file, 'Experiment Parameters'))
             output.write("""<HTML>
-                                         <h1><font size ="3">HQR vs LQR list </font size></h1>
+                                         <h1><font size ="3">HQR vs LQR </font size></h1>
                                           <table>
                                             {0}
                                           </table><br>
@@ -409,7 +409,7 @@ def summary_all_data(path, output_path):
         output.write('<b><font size ="5"> Analysis Report: Aggregate Summary </b></font size><p>')
 
         output.write("""<HTML>
-                                      <h1><font size ="3">HQR vs LQR list </font size></h1>
+                                      <h1><font size ="3">HQR vs LQR  </font size></h1>
                                        <table>
                                          {0}
                                        </table><br>
