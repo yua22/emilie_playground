@@ -28,6 +28,8 @@ HTML reports are created with interactive graphs (from mpld3) and links to Cumul
 python QC_reports.py --input /path_to_where_csv_json_h5_files_are/ --output /path_to_desired_location_of_output_files/
 
 
+
+
 Methods: 
 
 Inputs necessary in folder: 
@@ -76,6 +78,8 @@ Conclusion:
 HTML reports are created with interactive graphs(mpld3). They can be generated using a terminal command:  
 
 python Amplicon_reports.py --input /path_to_where_csv_json_h5_files_are/ --output /path_to_desired_location_of_output_files/
+
+
 
 
 
