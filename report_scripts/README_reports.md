@@ -29,19 +29,15 @@ python QC_reports.py --input /path_to_where_csv_json_h5_files_are/ --output /pat
 
 
 
-
-Methods: 
-- Inputs necessary in folder: 
- 	- ExpState_run_name.json
- 	- cell_annotations_run_name.csv
- 	- annotations_run_name.h5
-
-
+Inputs necessary in folder: 
+- ExpState_run_name.json
+- cell_annotations_run_name.csv
+- annotations_run_name.h5
 
 Note, script will not run if run_name is not identical. Ie:
- - ExpState_170413_SAM_01_zapdos_WAU17R11C15.json
- - cell_annotations_170413_SAM_01_zapdos_WAU17R11C15.csv
- - annotations_170413_SAM_01_zapdos_WAU17R11C15.h5 
+ - 'ExpState_170413_SAM_01_zapdos_WAU17R11C15.json'
+ - 'cell_annotations_170413_SAM_01_zapdos_WAU17R11C15.csv'
+ - 'annotations_170413_SAM_01_zapdos_WAU17R11C15.h5'
 
 
 Requirements: info_from_h5.py 
@@ -79,11 +75,11 @@ HTML reports are created with interactive graphs(mpld3). They can be generated u
 python Amplicon_reports.py --input /path_to_where_csv_json_h5_files_are/ --output /path_to_desired_location_of_output_files/
 
 
-Methods: 
-- Inputs necessary in folder: 
-	- ‘homo_date_SAM_run_name.annotations.h5_HQR.fastq’
-	- ‘amplicon_type_run_name_v5_MAPQ20.bam’
-	- ‘coverage_amplicon_tupe_run_name_v5_MAPQ20.txt’
+
+Inputs necessary in folder: 
+- ‘homo_date_SAM_run_name.annotations.h5_HQR.fastq’
+- ‘amplicon_type_run_name_v5_MAPQ20.bam’
+- ‘coverage_amplicon_tupe_run_name_v5_MAPQ20.txt’
 
 Note, script will not run if run_name is not identical. Ie. 
 - homo_170525_SAM_01_goldeen_WAL12R11C07.annotations.h5_HQR.fastq, 
