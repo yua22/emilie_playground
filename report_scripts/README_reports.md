@@ -4,43 +4,68 @@ Reports:
 QC_reports.py
 Amplicon_reports.py
 ________________________________
+
 QC_reports.py  
+
 
 Goal:
 To generate intuitive and clean reports of QC metrics to determine which templates and parameters work well for Sample Prep team.  
 
+
 Graphs and Tables:
 
 Tables: - experiment parameters (token, mode, notes, questions)
+
 	- HQR vs LQR 
 	
 Graphs: - histogram of align procession length
+
 	- cumulative frequency of start positions 
+	
 
 
 Conclusion:
 HTML reports are created with interactive graphs (from mpld3) and links to cumulus to view parameters. They can be generated using a terminal command: 
 python QC_reports.py --input /path_to_where_csv_json_h5_files_are/ --output /path_to_desired_location_of_output_files/
 
+
+
 Methods: 
+
 Inputs necessary in folder: 
+
 •	‘ExpState_run_name.json’
+
 •	‘cell_annotations_run_name.csv’
+
 •	‘annotations_run_name.h5’
 
+
+
 Note, script will not run if run_name is not identical. Ie:
+
 ExpState_170413_SAM_01_zapdos_WAU17R11C15.json, 
+
 cell_annotations_170413_SAM_01_zapdos_WAU17R11C15.csv, 
+
 annotations_170413_SAM_01_zapdos_WAU17R11C15.h5 
+
+
 
 
 Requirements: info_from_h5.py 
 
 
+
  Output/Results : 
+ 
 	•Html report for each experiment run   —  170413_SAM_01_zapdos_WAU17R11C15.html
+	
 	•Html report summarizing all HQRs      — Summary_HQR_per_experiment.html 
+	
 	•Html report aggregating all experiments in folder  — Summary.html 
+
+
 
 
 _________________________________ 
