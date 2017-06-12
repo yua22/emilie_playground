@@ -55,6 +55,8 @@ Requirements: info_from_h5.py
 
 _________________________________ 
 
+
+
 Amplicon_reports.py
 
 
@@ -67,10 +69,12 @@ Graphs:
 - Distribution of Full Read Lengths
 - Distribution of Sub-Read Lengths 
 
+
 Conclusion:
 HTML reports are created with interactive graphs(mpld3). They can be generated using a terminal command:  
 
 python Amplicon_reports.py --input /path_to_where_csv_json_h5_files_are/ --output /path_to_desired_location_of_output_files/
+
 
 
 Methods: 
@@ -85,6 +89,7 @@ Note, script will not run if run_name is not identical. Ie.
 - coverage_P-SceI-goldeen_100_v5_MAPQ20.txt
 
 Txt file is generated using samtools ‘samtools depth’. Parameters used: samtools depth -a -d 500000 
+
 
 
  Output/Results : 
