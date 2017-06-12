@@ -16,6 +16,7 @@ Graphs and Tables:
 Tables: 
 - experiment parameters (token, mode, notes, questions)
 - HQR vs LQR 
+
 Graphs: 
 - histogram of align procession length
 - cumulative frequency of start positions 
