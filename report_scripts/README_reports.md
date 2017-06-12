@@ -29,6 +29,7 @@ python QC_reports.py --input /path_to_where_csv_json_h5_files_are/ --output /pat
 
 
 Methods: 
+
 Inputs necessary in folder: 
  - ExpState_run_name.json
  - cell_annotations_run_name.csv
@@ -79,6 +80,7 @@ python Amplicon_reports.py --input /path_to_where_csv_json_h5_files_are/ --outpu
 
 
 Methods: 
+
 Inputs necessary in folder: 
 - ‘homo_date_SAM_run_name.annotations.h5_HQR.fastq’
 - ‘amplicon_type_run_name_v5_MAPQ20.bam’
