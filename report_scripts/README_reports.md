@@ -1,8 +1,8 @@
 README REPORTS 
 
 Reports:
-QC_reports.py
-Amplicon_reports.py
+- QC_reports.py
+- Amplicon_reports.py
 ________________________________
 
 QC_reports.py  
