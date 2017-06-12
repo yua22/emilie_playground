@@ -23,7 +23,7 @@ Graphs:
 	
 
 Conclusion:
-HTML reports are created with interactive graphs (from mpld3) and links to cumulus to view parameters. They can be generated using a terminal command: 
+HTML reports are created with interactive graphs (from mpld3) and links to Cumulus to view parameters. They can be generated using a terminal command: 
 
 python QC_reports.py --input /path_to_where_csv_json_h5_files_are/ --output /path_to_desired_location_of_output_files/
 
@@ -32,7 +32,7 @@ Methods:
 Inputs necessary in folder: 
  - ExpState_run_name.json
  - cell_annotations_run_name.csv
-  - annotations_run_name.h5
+ - annotations_run_name.h5
 
 
 
