@@ -10,8 +10,10 @@ Goal:
 To generate intuitive and clean reports of QC metrics to determine which templates and parameters work well for Sample Prep team.  
 
 Graphs and Tables:
+
 Tables: - experiment parameters (token, mode, notes, questions)
 	- HQR vs LQR 
+	
 Graphs: - histogram of align procession length
 	- cumulative frequency of start positions 
 
