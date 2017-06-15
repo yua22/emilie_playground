@@ -72,7 +72,7 @@ Graphs:
 Conclusion:
 HTML reports are created with interactive graphs(mpld3). They can be generated using a terminal command:  
 
-python Amplicon_reports.py --input /path_to_where_bam_fastq_text_files are/ --amp 'amplicon type e.g. P-GA' --color 'graph color e.g. 'red'
+python Amplicon_reports.py --input /path_to_where_bam_fastq_text_files are/ --amp 'amplicon type e.g. P-GA' --color 'graph color e.g. 'red''
 
 
 
