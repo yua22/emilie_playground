@@ -100,8 +100,12 @@ def math_summary_individual_graph(path, amplicon_type, color_graph):
             ax1.set_xlabel('Amplicon Type')
             ax1.set_ylabel('Amplicon Count')
             ax1.set_title('Distribution of Amplicon')
+            
+            sorted_coverage_dict = sorted(coverage_dict.items())
+            x_axis = zip(*sorted_coverage_dict)[0]
+            sorted_values = zip(*sorted_coverage_dict)[1]
 
-            ax2.bar(range(len(coverage_dict)), coverage_dict.values(), color=color_graph)
+            ax2.bar(range(len(x_axis)), sorted_values, color=color_graph)
             ax2.set_xlabel('Amplicon Type')
             ax2.set_ylabel('Depth of Coverage')
             ax2.set_title('Coverage Depth per Amplicon')
@@ -160,8 +164,11 @@ def plot_all_figs(path, amplicon_type, color_graph):
     ax1.set_ylabel(' Amplicon Count')
     ax1.set_title('Distribution of Amplicon')
 
+    sorted_coverage_dict = sorted(coverage_dict.items())
+    x_axis = zip(*sorted_coverage_dict)[0]
+    sorted_values = zip(*sorted_coverage_dict)[1]
 
-    ax2.bar(range(len(coverage_dict)), coverage_dict.values(), align="center", color = color_graph)
+    ax2.bar(range(len(x_axis)), sorted_values, align="center", color = color_graph)
     ax2.set_xlabel('Amplicon Type')
     ax2.set_ylabel('Depth of Coverage')
     ax2.set_title('Average Coverage Depth per Amplicon')
