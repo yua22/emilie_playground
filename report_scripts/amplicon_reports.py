@@ -29,8 +29,8 @@ def math_summary_individual_graph(path, amplicon_type, color_graph):
         if filename.endswith('.fastq'):
             fastq = path + filename
             pokemon = filename.split('_')[4]
-            bamfile = path + amplicon_type + '-' + pokemon + '_100_v5_MAPQ20.bam'
-            coverage_txt = path + 'coverage_' + amplicon_type + '-' + pokemon + '_100_v5_MAPQ20.txt'
+            bamfile = path + amplicon_type + '-' + pokemon + '_Cobbv5_MAPQ20.bam'
+            coverage_txt = path + 'coverage_' + amplicon_type + '-' + pokemon + '_Cobbv5_MAPQ20.txt'
             bam_summary = summary.process_bam(bamfile)
             coverage_depth = open(coverage_txt, 'r')
             seq_lst = read_fastq(fastq)
@@ -42,17 +42,18 @@ def math_summary_individual_graph(path, amplicon_type, color_graph):
 
             for k,v in  bam_summary['reference_id'].iteritems():
                 if v == '-1': continue
-                if v not in amplicon_count_aggregate:
-                    amplicon_count_aggregate[v] = 0
-                amplicon_count_aggregate[v] +=1
-                if v not in amplicon_count:
-                    amplicon_count[v] = 0
-                amplicon_count[v] += 1
+                amplicon_num = int(v)+1
+                if amplicon_num not in amplicon_count_aggregate:
+                    amplicon_count_aggregate[amplicon_num] = 0
+                amplicon_count_aggregate[amplicon_num] +=1
+                if amplicon_num not in amplicon_count:
+                    amplicon_count[amplicon_num] = 0
+                amplicon_count[amplicon_num] += 1
+
 
             for line in coverage_depth:
                 tab_split = line.split()
                 amplicon = int(tab_split[0][1:])
-                base_num = tab_split[1]
                 coverage = str(tab_split[2])
                 coverage_dict_aggregate[amplicon].append(coverage)
                 coverage_dict[amplicon].append(coverage)
@@ -60,9 +61,17 @@ def math_summary_individual_graph(path, amplicon_type, color_graph):
             for k, v in coverage_dict.iteritems():
                 total = 0
                 for v1 in v:
-                    total += int(v1)
+                    total += float(v1)
                 average = total / len(v)
                 coverage_dict[k] = (average)
+
+            sorted_coverage_dict = sorted(coverage_dict.items())
+            x_axis = zip(*sorted_coverage_dict)[0]
+            sorted_values = zip(*sorted_coverage_dict)[1]
+
+            sorted_amplicon_count = sorted(amplicon_count.items())
+            x_axis_a = zip(*sorted_amplicon_count)[0]
+            sorted_amplicon = zip(*sorted_amplicon_count)[1]
 
 
             for k, v in bam_summary['query_length'].iteritems():
@@ -96,16 +105,14 @@ def math_summary_individual_graph(path, amplicon_type, color_graph):
             ax3 = axes[2]
             ax4 = axes[3]
 
-            ax1.bar(range(len(amplicon_count)), amplicon_count.values(), color=color_graph)
+
+            ax1.bar(x_axis_a, sorted_amplicon, color=color_graph)
             ax1.set_xlabel('Amplicon Type')
             ax1.set_ylabel('Amplicon Count')
             ax1.set_title('Distribution of Amplicon')
-            
-            sorted_coverage_dict = sorted(coverage_dict.items())
-            x_axis = zip(*sorted_coverage_dict)[0]
-            sorted_values = zip(*sorted_coverage_dict)[1]
 
-            ax2.bar(range(len(x_axis)), sorted_values, color=color_graph)
+
+            ax2.bar(x_axis, sorted_values, color=color_graph)
             ax2.set_xlabel('Amplicon Type')
             ax2.set_ylabel('Depth of Coverage')
             ax2.set_title('Coverage Depth per Amplicon')
@@ -128,19 +135,20 @@ def math_summary_individual_graph(path, amplicon_type, color_graph):
             plots_html = mpld3.fig_to_html(tPlot)
             fig, ax = plt.subplots()
 
-            output_name = bamfile[:-3] + '_analysis.html'
+            output_name = bamfile[:-4] + '_analysis.html'
             with open((output_name), 'w') as output:
                  output.write(
                     '<b><font size ="5"> Amplicon Analysis Report: %s </b></font size><p>' % str(
-                        'P-GA-' + pokemon + '_100_v5_MAPQ20'))
+                        'S7_' + pokemon + '_Cobbv5_MAPQ20'))
                  output.write(plots_html)
 
     for k, v in coverage_dict_aggregate.iteritems():
         total = 0
         for v1 in v:
-            total += int(v1)
+            total += float(v1)
         average2 = total / len(v)
         coverage_dict_aggregate[k] = (average2)
+
 
     return amplicon_count_aggregate, readlenth_amplicons_aggregate, coverage_dict_aggregate, readlength_amplicons_fastq_aggregate
 
@@ -195,9 +203,9 @@ def plot_all_figs(path, amplicon_type, color_graph):
     plots_html = mpld3.fig_to_html(tPlot)
     fig, ax = plt.subplots()
 
-    outputname = path + 'Analysis_Total_PETE_' + amplicon_type + '.html'
+    outputname = path + 'Analysis_Total_ ' + amplicon_type + '.html'
     with open((outputname), 'w') as output:
-        output.write('<b><font size ="5"> Amplicon Analysis Report: Total PETE %s </b></font size><p>' % amplicon_type)
+        output.write('<b><font size ="5"> Amplicon Analysis Report: Total  %s </b></font size><p>' % amplicon_type)
         output.write(plots_html)
 
     return
@@ -223,7 +231,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-#
-# path = '/Users/burtone2/Documents/work/PETE_analysis/PETE_concat_data/PETE-SceI-GA/'
-#
-# print plot_all_figs(path,  'P-GA', 'red')
