@@ -51,7 +51,7 @@ def math_summary_individual_graph(path, amplicon_type, color_graph):
 
             for line in coverage_depth:
                 tab_split = line.split()
-                amplicon = tab_split[0]
+                amplicon = int(tab_split[0][1:])
                 base_num = tab_split[1]
                 coverage = str(tab_split[2])
                 coverage_dict_aggregate[amplicon].append(coverage)
